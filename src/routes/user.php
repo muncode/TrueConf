@@ -46,15 +46,13 @@ $app->get('/api/user/', function(Request $request, Response $response){
     echo '{"Ошибка" : {"текст":'.$e->getMessage().'}';
   }
 });
-
-// POST добваить user
 $app->post('/api/user/', function(Request $request, Response $response){
   $name = $request->getParam('name');
   $file = file_get_contents("../src/routes/user.json");
   $json_a = json_decode($file, true);
   try{
     if ($json_a){
-      array_push($json_a,array ("id" => $json_a[array_key_last($json_a)]["id"]+1,"name" => $name));
+      array_push($json_a,array ("id" => end($json_a)["id"]+1, "name" => $name));
       foreach ($json_a as $json_b){
         echo "id - " . $json_b["id"] . "; ";
         echo "name - " . $json_b["name"] . "<br/>";
