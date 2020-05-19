@@ -1,4 +1,5 @@
 # TrueConf
+http://beee.zzz.com.ua/TrueConf/public/api/user
 
 Вам нужно написать маленькое приложение на Slim Framework предоставляющие REST API по работе с сущностью User.
 
